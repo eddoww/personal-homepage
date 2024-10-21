@@ -1,29 +1,76 @@
-# Next.js Static Export
+# Edwin De Jong - Personal Homepage
 
-Next.js enables starting as a static site or Single-Page Application (SPA), then later optionally upgrading to use features that require a server.
+![GitHub last commit](https://img.shields.io/github/last-commit/eddoww/personal-homepage)
+![GitHub](https://img.shields.io/github/license/eddoww/personal-homepage)
+Welcome to the repository of my personal homepage!
 
-When running `next build`, Next.js generates an HTML file per route. By breaking a strict SPA into individual HTML files, Next.js can avoid loading unnecessary JavaScript code on the client-side, reducing the bundle size and enabling faster page loads.
+## 🚀 Live Demo
 
-Learn more: https://nextjs.org/docs/app/building-your-application/deploying/static-exports
+Visit my personal homepage: [https://edwindejong.net](https://edwindejong.net)
 
-## Deploy your own
+## 🛠 Tech Stack
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-static-export)
+- [Next.js](https://nextjs.org/) - React framework for production
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [CSS Modules](https://github.com/css-modules/css-modules) - Scoped CSS for components
+- [Cloudflare Pages](https://pages.cloudflare.com/) - Hosting and continuous deployment
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-static-export)
+## 🌟 Features
 
-## How to use
+- Responsive design for optimal viewing on all devices
+- Static site generation for fast loading times
+- Easy-to-update content structure
+- SEO-friendly
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## 🔧 Local Development
 
-```bash
-npx create-next-app --example with-static-export with-static-export-app
-```
+To set up this project locally:
 
-```bash
-yarn create next-app --example with-static-export with-static-export-app
-```
+1. Clone the repository:
 
-```bash
-pnpm create next-app --example with-static-export with-static-export-app
-```
+   ```
+   git clone https://github.com/eddoww/personal-homepage.git
+   cd personal-homepage
+   ```
+
+2. Install dependencies:
+
+   ```
+   npm install
+   ```
+
+3. Run the development server:
+
+   ```
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## 🚢 Deployment
+
+This site is automatically deployed to Cloudflare Pages when changes are pushed to the `main` branch. The build process is handled by Cloudflare Pages using the following settings:
+
+- Build command: `npm run build`
+- Output directory: `out`
+
+## 👨‍💻 About Me
+
+I'm Edwin De Jong, an experienced DevOps Engineer and Software Developer based in Baerum, Akershus, Norway. I specialize in infrastructure management, automation, and full-stack development. I'm passionate about building secure, efficient, and scalable solutions.
+
+- 📧 Email: [info@edwindejong.net](mailto:info@edwindejong.net)
+- 🌐 Website: [https://edwindejong.net](https://edwindejong.net)
+- 💼 LinkedIn: [Edwin De Jong](https://www.linkedin.com/in/edwin-de-jong)
+- 🐙 GitHub: [@eddoww](https://github.com/eddoww)
+
+## 🤝 Contributing
+
+While this is primarily a personal project, I'm open to suggestions and improvements. Feel free to open an issue or submit a pull request if you have any ideas to enhance this project.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Built with ❤️ by Edwin De Jong
