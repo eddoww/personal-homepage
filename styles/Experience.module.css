@@ -1,14 +1,14 @@
 .experience {
-  background-color: white;
+  background-color: var(--card-bg-color);
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 2rem;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .experience h2 {
-  color: #3498db;
-  border-bottom: 2px solid #3498db;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
 }
@@ -16,7 +16,7 @@
 .job {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #ecf0f1;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
 .job:last-child {
@@ -24,13 +24,14 @@
 }
 
 .job h3 {
-  color: #2c3e50;
+  color: var(--secondary-color);
   margin-bottom: 0.5rem;
 }
 
 .period {
   font-style: italic;
-  color: #7f8c8d;
+  color: var(--text-color);
+  opacity: 0.8;
   margin-bottom: 1rem;
 }
 
@@ -45,8 +46,8 @@
 
 .technologies {
   font-size: 0.9rem;
-  color: #34495e;
-  background-color: #ecf0f1;
+  color: var(--text-color);
+  background-color: rgba(var(--primary-color), 0.1);
   padding: 0.5rem;
   border-radius: 4px;
 }

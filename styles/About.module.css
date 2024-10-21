@@ -1,19 +1,27 @@
 .about {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg-color);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about h2 {
-  color: #3498db;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.about p {
+  margin-bottom: 1rem;
 }
 
 .about a {
-  color: #3498db;
+  color: var(--primary-color);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .about a:hover {
+  color: var(--secondary-color);
   text-decoration: underline;
 }

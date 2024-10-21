@@ -21,6 +21,18 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              (function() {
+                var savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark-mode');
+                }
+              })();
+            `,
+            }}
+          />
           <Main />
           <NextScript />
         </body>
