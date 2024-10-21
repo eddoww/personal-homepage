@@ -1,0 +1,28 @@
+.experience {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.experience h2 {
+  color: #3498db;
+}
+
+.job {
+  margin-bottom: 20px;
+}
+
+.job h3 {
+  margin-bottom: 5px;
+}
+
+.job p {
+  font-style: italic;
+  margin-top: 0;
+}
+
+.job ul {
+  padding-left: 20px;
+}

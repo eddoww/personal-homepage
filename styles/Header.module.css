@@ -1,0 +1,12 @@
+.header {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.subtitle {
+  font-style: italic;
+  margin-top: 0;
+}
