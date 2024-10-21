@@ -1,7 +1,8 @@
-# Edwin De Jong - Personal Homepage
+# Edwin de Jong - Personal Homepage
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/eddoww/personal-homepage)
 ![GitHub](https://img.shields.io/github/license/eddoww/personal-homepage)
+
 Welcome to the repository of my personal homepage!
 
 ## 🚀 Live Demo
@@ -60,7 +61,7 @@ I'm Edwin De Jong, an experienced DevOps Engineer and Software Developer based i
 
 - 📧 Email: [info@edwindejong.net](mailto:info@edwindejong.net)
 - 🌐 Website: [https://edwindejong.net](https://edwindejong.net)
-- 💼 LinkedIn: [Edwin De Jong](https://www.linkedin.com/in/edwin-de-jong)
+- 💼 LinkedIn: [Edwin de Jong](https://www.linkedin.com/in/edwin-de-jong)
 - 🐙 GitHub: [@eddoww](https://github.com/eddoww)
 
 ## 🤝 Contributing
@@ -73,4 +74,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-Built with ❤️ by Edwin De Jong
+Built with ❤️ by Edwin de Jong
