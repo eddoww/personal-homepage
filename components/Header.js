@@ -6,12 +6,12 @@ export default function Header() {
       <div className={styles.content}>
         <h1>Edwin De Jong</h1>
         <p className={styles.title}>
-          DevOps Engineer / Cloud Engineer / Site Reliability Engineer (SRE) /
-          Software Engineer
+          Lead DevOps Engineer | Game Developer | Homelab Architect | Boardgame Fanatic
         </p>
-        <p className={styles.location}>Baerum, Akershus, Norway</p>
+        <p className={styles.location}>Bærum, Norway</p>
         <div className={styles.contact}>
-          <a href="mailto:info@edwindejong.net">info@edwindejong.net</a> |
+          <a href="mailto:vevionez@protonmail.com">vevionez@protonmail.com</a>{" "}
+          |{" "}
           <a
             href="https://github.com/eddoww"
             target="_blank"
@@ -19,13 +19,21 @@ export default function Header() {
           >
             GitHub
           </a>{" "}
-          |
+          |{" "}
           <a
-            href="https://edwindejong.net"
+            href="https://linkedin.com/in/edwindejong"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Website
+            LinkedIn
+          </a>{" "}
+          |{" "}
+          <a
+            href="https://discord.gg/ugaris"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discord
           </a>
         </div>
       </div>

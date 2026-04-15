@@ -8,11 +8,11 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content="Edwin De Jong - DevOps Engineer, Cloud Engineer, and Site Reliability Engineer (SRE)"
+            content="Edwin De Jong — Lead DevOps Engineer at Kongsberg Discovery, game developer behind Ugaris MMORPG, and homelab architect."
           />
           <meta
             name="keywords"
-            content="DevOps, Cloud Engineering, SRE, Edwin De Jong, Norway"
+            content="DevOps, Cloud Engineering, SRE, Edwin De Jong, Norway, Ugaris, MMORPG, Game Development, Kubernetes, Terraform, Homelab"
           />
 
           <link

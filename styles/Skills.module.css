@@ -1,4 +1,4 @@
-.articles {
+.skills {
   background-color: var(--card-bg-color);
   padding: 2rem;
   border-radius: 8px;
@@ -7,7 +7,7 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.articles h2 {
+.skills h2 {
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   padding-bottom: 0.5rem;
@@ -16,60 +16,53 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
 .card {
-  display: block;
   background-color: var(--card-bg-color);
   border: 1px solid var(--secondary-color);
   border-radius: 8px;
   padding: 1.5rem;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  border-color: var(--primary-color);
-  text-decoration: none;
 }
 
-.cardContent h3 {
+.card h3 {
   color: var(--primary-color);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   margin-top: 0;
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
-.meta {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.85rem;
-  color: var(--text-color);
-  opacity: 0.7;
-  margin-bottom: 0.75rem;
+.skillList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.excerpt {
+.skillItem {
+  padding: 0.3rem 0;
   color: var(--text-color);
   font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
 }
 
-.readMore {
+.skillItem::before {
+  content: "▸ ";
   color: var(--primary-color);
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: color 0.3s ease;
 }
 
-.card:hover .readMore {
-  color: var(--secondary-color);
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 600px) {
