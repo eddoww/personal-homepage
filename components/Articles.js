@@ -4,6 +4,7 @@ import styles from "../styles/Articles.module.css";
 export default function Articles() {
   const articles = [
     {
+      published: true,
       slug: "building-ugaris",
       title: "Building Ugaris: A Decade-Long Journey in Game Development",
       date: "April 2026",
@@ -12,6 +13,7 @@ export default function Articles() {
         "In 2014, I forked an open-source MMORPG called Mercenaries of Astonia. I played this game as a child. I met my wife on this game. Eleven years later, it's still the project that drives me — here's the story of how a dusty C codebase became a modern containerized platform.",
     },
     {
+      published: true,
       slug: "homelab-odyssey",
       title: "From Bare Metal to Kubernetes: A Homelab Odyssey",
       date: "April 2026",
@@ -20,6 +22,7 @@ export default function Articles() {
         "It started with a forum in high school. Then gaming clans needed voice servers. Then a custom ladder system required learning to code. Now it's a full enterprise rack with four Proxmox servers, a 7-node Talos Kubernetes cluster, and VLANs named after Game of Thrones houses. Here's what I learned along the way.",
     },
     {
+      published: false,
       slug: "llms-engineering-trenches",
       title: "LLMs in the Engineering Trenches: Coaching Developers to Code with AI",
       date: "April 2026",
@@ -33,7 +36,7 @@ export default function Articles() {
     <section id="articles" className={styles.articles}>
       <h2>Recent Articles</h2>
       <div className={styles.grid}>
-        {articles.map((article, index) => (
+        {articles.filter(a => a.published !== false).map((article, index) => (
           <Link
             href={`/articles/${article.slug}`}
             key={index}
