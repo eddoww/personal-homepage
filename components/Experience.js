@@ -13,7 +13,7 @@ export default function Experience() {
         "Administering and optimizing Azure DevOps environments — including project governance, branch policies, service connections, and variable groups — establishing best practices for repository management and pipeline orchestration.",
         "Authoring Infrastructure as Code with Terraform and Ansible targeting Azure, standardizing provisioning and enabling reproducible, auditable deployments across landing zones and subscriptions.",
         "Designing and implementing Azure-based platform architecture, leveraging Azure Kubernetes Service (AKS), Azure Container Registry, and Azure Monitor to build resilient, scalable infrastructure.",
-        "Coaching and mentoring engineers in leveraging LLMs for daily software engineering, accelerating development velocity and fostering a culture of AI-augmented workflows across Azure DevOps pipelines and beyond.",
+        "Coaching and mentoring engineers in leveraging LLMs for daily software engineering — including OpenCode, GitHub Copilot, and Agents.md-driven development workflows — accelerating development velocity and fostering a culture of AI-augmented engineering across Azure DevOps pipelines and beyond."
       ],
       technologies: [
         "Azure DevOps",
