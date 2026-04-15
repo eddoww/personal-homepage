@@ -3,9 +3,32 @@ import styles from "../styles/Experience.module.css";
 export default function Experience() {
   const experiences = [
     {
+      title: "Lead DevOps Engineer",
+      company: "Kongsberg Discovery AS",
+      period: "April 2025 - Present",
+      location: "Horten, Norway (Hybrid)",
+      responsibilities: [
+        "Spearheading the modernization of CI/CD pipelines, driving efficiency and reliability across the engineering organization.",
+        "Leading infrastructure migration initiatives, ensuring seamless transitions with minimal disruption to production systems.",
+        "Administering and optimizing Azure DevOps environments, establishing best practices for repository management, pipelines, and governance.",
+        "Authoring Infrastructure as Code with Terraform and Ansible, standardizing provisioning and enabling reproducible, auditable deployments.",
+        "Coaching and mentoring engineers in leveraging LLMs for daily software engineering, accelerating development velocity and fostering a culture of AI-augmented workflows.",
+      ],
+      technologies: [
+        "Terraform",
+        "Ansible",
+        "Azure DevOps",
+        "Kubernetes",
+        "Azure",
+        "GitHub Actions",
+        "Prometheus",
+        "Grafana",
+      ],
+    },
+    {
       title: "DevOps Engineer",
       company: "Nord Pool AS",
-      period: "October 2022 - Present",
+      period: "October 2022 - March 2025",
       location: "Oslo, Norway (Hybrid)",
       responsibilities: [
         "Spearheaded migration of infrastructure between Azure Intune environments, minimizing downtime and ensuring seamless service transitions.",
