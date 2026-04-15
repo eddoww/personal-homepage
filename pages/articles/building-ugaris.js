@@ -65,7 +65,30 @@ export default function BuildingUgaris() {
               the game I'd loved since I was a kid.
             </p>
             <p>
-              It worked. Barely. But it worked. And that was enough to keep me going.
+              But a server without players is just a sad process listening on a port.
+              There was no website, no way to sign up, nothing. So I built the first
+              account creation and character creation page — a barebones PHP site
+              with a login form, a database, and calls to C-compiled executables that
+              did the actual heavy lifting of creating accounts and characters. I'm
+              not proud of the PHP functions I used. Let's just say "unsafe" is
+              putting it mildly. But it was functional, and it was enough.
+            </p>
+            <p>
+              From there, I spent a lot of time building what was, for the time, a
+              quite impressive website. Player profiles, high scores, game statistics,
+              community features — the works. It's twelve years old now and hopelessly
+              outdated, which is exactly why we're building the new one. But back then?
+              It felt like building a world, not just a website.
+            </p>
+            <p>
+              Once players could register, create characters, and download the client,
+              it started feeling real. People signed up. Old friends reunited. Players
+              who'd known each other in the original game found each other again in
+              Ugaris. It was magical.
+            </p>
+            <p>
+              Then we wanted to change things. And we really started looking into the
+              code...
             </p>
 
             <h2>The Personal Connection</h2>
