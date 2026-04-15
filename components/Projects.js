@@ -70,8 +70,8 @@ export default function Projects() {
             mechanics
           </li>
           <li>
-            Evolved from a single bare-metal server to a full Kubernetes
-            deployment
+            Evolved from a single bare-metal server to containerized
+            infrastructure with Docker
           </li>
         </ul>
       </>
@@ -113,8 +113,9 @@ export default function Projects() {
             for load balancing
           </li>
           <li>
-            <strong>Infrastructure:</strong> Containerized deployment on
-            Kubernetes with full CI/CD pipelines
+            <strong>Infrastructure:</strong> Containerized deployment with
+            Docker and full CI/CD pipelines (Kubernetes on the roadmap for
+            Steam release)
           </li>
           <li>
             <strong>Monitoring:</strong> Comprehensive logging and metrics
@@ -146,7 +147,7 @@ export default function Projects() {
           </li>
           <li>
             Orchestrated migration from bare-metal servers to a fully
-            containerized, cloud-native infrastructure on Kubernetes
+            containerized infrastructure with Docker
           </li>
           <li>
             Built full synchronization between Discord and in-game chat —

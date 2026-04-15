@@ -130,7 +130,10 @@ export default function BuildingUgaris() {
               single-connection setup into something that could actually handle
               concurrent players without falling over. Then containerization — Docker
               wrapping each service, defining proper dependencies, making deploys
-              repeatable. And finally Kubernetes, because of course I went there.
+              repeatable. I've considered moving everything to Kubernetes
+              — maybe once the Steam release happens — but for now, Docker on
+              dedicated infrastructure does the job, and I'd rather have stability
+              than complexity I don't need yet.
             </p>
 
             <h2>The Architecture Today</h2>
@@ -146,9 +149,11 @@ export default function BuildingUgaris() {
             </p>
             <p>
               On the infrastructure side: MySQL with connection pooling, ProxySQL,
-              containerized on Kubernetes, with full CI/CD pipelines. It's
+              containerized with Docker, with full CI/CD pipelines. It's
               over-engineered for the player count, and I don't care. It's built
-              right, and I learned something at every step.
+              right, and I learned something at every step. Kubernetes is on the
+              roadmap — maybe once the Steam release happens — but for now,
+              stability wins over complexity.
             </p>
 
             <h2>The Community</h2>
