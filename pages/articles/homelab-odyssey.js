@@ -9,7 +9,7 @@ export default function HomelabOdyssey() {
         <title>From Bare Metal to Kubernetes: A Homelab Odyssey - Edwin de Jong</title>
         <meta
           name="description"
-          content="It started with a laptop. Now it's a full enterprise rack with four Proxmox servers, a 7-node Talos Kubernetes cluster, and VLANs named after Game of Thrones houses."
+          content="It started with a forum in high school. Now it's a full enterprise rack with four Proxmox servers, a 7-node Talos Kubernetes cluster, and VLANs named after Game of Thrones houses."
         />
       </Head>
 
@@ -23,17 +23,78 @@ export default function HomelabOdyssey() {
             <h1>From Bare Metal to Kubernetes: A Homelab Odyssey</h1>
             <div className={styles.meta}>
               <span>April 2026</span>
-              <span>5 min read</span>
+              <span>8 min read</span>
             </div>
           </div>
 
           <div className={styles.articleBody}>
             <p>
-              It started with a laptop. Just a laptop, running a game server,
-              hosting a website, doing everything on one machine because that's
-              all I had. It worked — sort of — until it didn't. When the laptop
-              overheated during a raid event and the whole thing went down, I
+              It didn't start with a rack. It didn't start with Kubernetes. It
+              started in high school, when I decided I wanted my own website.
+              An Invision Power Board forum, hosted on whatever shared hosting
+              I could afford. I was probably the first teenager in my hometown
+              who could say he owned his own website — this was back when that
+              actually meant something. Having your own corner of the internet
+              felt like magic.
+            </p>
+
+            <h2>The Early Years: Forums, Clans, and Voice Servers</h2>
+            <p>
+              Then came gaming, and with it, clans and guilds and communities.
+              Every community needed a forum — a place to call home — and a
+              voice server. TeamSpeak was king back then, and I hosted it all.
+              vBulletin, Invision Power Board, phpBB — I ran each of them at
+              various points, for long stretches at a time. Joomla, WordPress,
+              Drupal — if it could host a community site, I probably deployed
+              it at some point.
+            </p>
+            <p>
+              The pattern was always the same: find a community that needed
+              something, build it, run it, maintain it. I wasn't just running
+              software — I was the infrastructure guy before I knew that was a
+              job.
+            </p>
+
+            <h2>Learning to Code Because Nothing Fit</h2>
+            <p>
+              At some point, hosting other people's software wasn't enough. A
+              gaming community needed a custom ladder system — a ranking and
+              match tracking tool — and nothing out there really suited us. We
+              needed something built for how we actually played. So I started
+              learning to program.
+            </p>
+            <p>
+              That led me to Laravel, and from there to too many projects to
+              name. The pattern solidified: I build things because I need them,
+              and I need them because I built them. Always focused on making
+              things that were useful, not just interesting. If a community
+              needed it, I'd figure out how to build it.
+            </p>
+
+            <h2>The Hetzner Years</h2>
+            <p>
+              For a long time, everything ran on a dedicated Hetzner server.
+              Virtualmin and Webmin managing about ten to twenty websites. It
+              worked — it worked well, actually — but Hetzner isn't cheap when
+              you're running that many sites, and most of them had modest
+              traffic. I did the math and realized: for what I'm paying this
+              hosting company, I could probably do it cheaper myself.
+            </p>
+            <p>
+              Why not at home?
+            </p>
+            <p>
+              That's where the laptop came into play. An old laptop, repurposed
+              as a home server. It worked — sort of — until it didn't. When it
+              overheated during a gaming event and the whole thing went down, I
               realized I needed to think about this differently.
+            </p>
+            <p>
+              Around this time, I also got interested in smart homes. Home
+              Assistant opened a whole new world of automation. And of course,
+              the *arr stack for home cinema — Sonarr, Radarr, Prowlarr,
+              Bazarr — because if you're going to self-host, you might as well
+              self-host everything.
             </p>
 
             <h2>The Progression</h2>
@@ -45,7 +106,7 @@ export default function HomelabOdyssey() {
               how the homelab was born.
             </p>
             <p>
-              Ugaris was the driver for most of these upgrades. The game needed
+              Ugaris was the driver for many of these upgrades. The game needed
               a database, so I needed a machine for that. The database needed
               backups, so I needed storage. The website needed hosting. The
               Discord bot needed to run somewhere. Each requirement pushed me
@@ -58,7 +119,9 @@ export default function HomelabOdyssey() {
               Today, the homelab runs on four Dell servers, each running
               Proxmox VE. I named them after Game of Thrones houses — because
               naming things is hard, and I refuse to call my servers
-              &quot;server-01&quot; through &quot;server-04.&quot;
+              &quot;server-01&quot; through &quot;server-04.&quot; There are
+              only two hard problems in computer science: cache invalidation,
+              naming things, and off-by-one errors.
             </p>
             <p>
               <strong>Tully</strong> is the smart home server — it runs Home
@@ -68,13 +131,13 @@ export default function HomelabOdyssey() {
               automations die. No pressure.
             </p>
             <p>
-              <strong>Baratheon</strong> hosts the NAS, the production Ugaris
-              game servers, and a Docker VM running Vaultwarden and various
-              websites. <strong>Greyjoy</strong> is currently empty — potential
-              backup server, potential future expansion. I'll figure it out
-              when I need it. And <strong>Arryn</strong> is the new kid,
-              running the Talos Kubernetes cluster and the new Ugaris
-              infrastructure as I migrate things over from Baratheon.
+              <strong>Baratheon</strong> is the NAS — 49TB of ZFS storage, and
+              still hosts the production Ugaris game servers via Docker.
+              <strong>Greyjoy</strong> has a 24-disk ZFS RAIDZ2 pool running
+              PBS backups, with room for future expansion. And
+              <strong>Arryn</strong> is the new kid, running the Talos
+              Kubernetes cluster and the new Ugaris web infrastructure as I
+              migrate services over.
             </p>
 
             <h2>The Kubernetes Journey</h2>
@@ -94,17 +157,20 @@ export default function HomelabOdyssey() {
               from the ground up.
             </p>
             <p>
-              The Ugaris infrastructure runs on this cluster. Containerized
-              game servers, the Go API, the Astro frontend, CI/CD runners,
-              monitoring — all of it. It's over-engineered, and I love it.
+              The cluster runs Ugaris web services, the Astro frontend, the Go
+              API, Listmonk for newsletters, cert-manager for TLS, monitoring
+              with Prometheus and Grafana — the works. Ugaris game servers are
+              still on Docker outside the cluster for now, but Kubernetes is
+              waiting. Maybe once the Steam release happens, we'll make the
+              move. Over-engineered? Absolutely. But it's built right.
             </p>
 
             <h2>Networking</h2>
             <p>
               The networking layer is the part I'm most proud of. I have proper
-              VLAN isolation — the smart home devices are on their own
-              network, the Ugaris infrastructure lives on VLAN 70, general
-              services on another. VPN access for when I'm away. Firewall
+              VLAN isolation — the smart home devices are on their own network,
+              the Ugaris production infrastructure lives on VLAN 70, general
+              services on another. VPN access for remote management. Firewall
               rules that actually make sense. It's very well put together, if I
               say so myself.
             </p>
@@ -119,13 +185,16 @@ export default function HomelabOdyssey() {
 
             <h2>What I Learned</h2>
             <p>
-              Each stage of the homelab taught me something different. Bare
-              metal taught me about hardware — what fails, what overheats, why
-              you don't cheap out on power supplies. Containers taught me about
-              isolation and reproducibility — why &quot;it works on my
-              machine&quot; is a problem, and how to solve it. Kubernetes
-              taught me about orchestration — how to manage complexity without
-              losing visibility.
+              Each stage of the homelab taught me something different. Forums
+              and shared hosting taught me about web servers, DNS, and the
+              basics of running services that people depend on. Hetzner taught
+              me about dedicated infrastructure and the cost of outsourcing.
+              Bare metal at home taught me about hardware — what fails, what
+              overheats, why you don't cheap out on power supplies. Containers
+              taught me about isolation and reproducibility — why &quot;it
+              works on my machine&quot; is a problem, and how to solve it.
+              Kubernetes taught me about orchestration — how to manage
+              complexity without losing visibility.
             </p>
             <p>
               And the whole journey reinforced something I've always believed:
