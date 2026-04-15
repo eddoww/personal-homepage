@@ -6,7 +6,7 @@ export default function BuildingUgaris() {
   return (
     <div>
       <Head>
-        <title>Building Ugaris: A Decade-Long Journey in Game Development - Edwin De Jong</title>
+        <title>Building Ugaris: A Decade-Long Journey in Game Development - Edwin de Jong</title>
         <meta
           name="description"
           content="In 2014, I forked an open-source MMORPG called Mercenaries of Astonia. Eleven years later, it's still the project that drives me — here's how a dusty C codebase became a modern cloud-native platform."

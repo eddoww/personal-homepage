@@ -5,7 +5,7 @@ export default function About() {
     <section id="about" className={styles.about}>
       <h2>About Me</h2>
       <p>
-        I'm a Lead DevOps Engineer at Kongsberg Discovery AS, based in Bærum,
+        I'm a Lead DevOps Engineer at Kongsberg Discovery AS, based in Sand i Vestfold, Norway
         Norway. I've been building, breaking, and fixing things in tech for over
         a decade — from running MMORPG servers on rented hardware in my teens to
         architecting enterprise-grade infrastructure at scale.

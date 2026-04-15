@@ -4,11 +4,11 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.content}>
-        <h1>Edwin De Jong</h1>
+        <h1>Edwin de Jong</h1>
         <p className={styles.title}>
           Lead DevOps Engineer | Game Developer | Homelab Architect | Boardgame Fanatic
         </p>
-        <p className={styles.location}>Bærum, Norway</p>
+        <p className={styles.location}>Sand i Vestfold, Norway</p>
         <div className={styles.contact}>
           <a href="mailto:vevionez@protonmail.com">vevionez@protonmail.com</a>{" "}
           |{" "}
@@ -29,7 +29,7 @@ export default function Header() {
           </a>{" "}
           |{" "}
           <a
-            href="https://discord.gg/ugaris"
+            href="https://discord.gg/dPFkgjD"
             target="_blank"
             rel="noopener noreferrer"
           >

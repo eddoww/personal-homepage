@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Edwin De Jong - Lead DevOps Engineer &amp; Game Developer</title>
+        <title>Edwin de Jong - Lead DevOps Engineer &amp; Game Developer</title>
         <meta
           name="description"
-          content="Edwin De Jong — Lead DevOps Engineer at Kongsberg Discovery, game developer behind Ugaris MMORPG, and homelab architect. Building, breaking, and fixing systems for over a decade."
+          content="Edwin de Jong — Lead DevOps Engineer at Kongsberg Discovery, game developer behind Ugaris MMORPG, and homelab architect. Building, breaking, and fixing systems for over a decade."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -31,7 +31,7 @@ export default function Home() {
 
       <footer>
         <p>
-          &copy; {new Date().getFullYear()} Edwin De Jong. All rights reserved.
+          &copy; {new Date().getFullYear()} Edwin de Jong. All rights reserved.
         </p>
       </footer>
     </div>

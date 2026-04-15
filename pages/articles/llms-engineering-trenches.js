@@ -6,7 +6,7 @@ export default function LLMsEngineeringTrenches() {
   return (
     <div>
       <Head>
-        <title>LLMs in the Engineering Trenches: Coaching Developers to Code with AI - Edwin De Jong</title>
+        <title>LLMs in the Engineering Trenches: Coaching Developers to Code with AI - Edwin de Jong</title>
         <meta
           name="description"
           content="At Kongsberg Discovery, we got the green light for Copilot — and I made it my mission to show engineers what's actually possible with LLMs in daily software engineering."

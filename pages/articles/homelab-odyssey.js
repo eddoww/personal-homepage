@@ -6,7 +6,7 @@ export default function HomelabOdyssey() {
   return (
     <div>
       <Head>
-        <title>From Bare Metal to Kubernetes: A Homelab Odyssey - Edwin De Jong</title>
+        <title>From Bare Metal to Kubernetes: A Homelab Odyssey - Edwin de Jong</title>
         <meta
           name="description"
           content="It started with a laptop. Now it's a full enterprise rack with four Proxmox servers, a 7-node Talos Kubernetes cluster, and VLANs named after Game of Thrones houses."
