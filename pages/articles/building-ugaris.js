@@ -9,7 +9,7 @@ export default function BuildingUgaris() {
         <title>Building Ugaris: A Decade-Long Journey in Game Development - Edwin de Jong</title>
         <meta
           name="description"
-          content="In 2014, I forked an open-source MMORPG called Mercenaries of Astonia. Eleven years later, it's still the project that drives me — here's how a dusty C codebase became a modern cloud-native platform."
+          content="In 2014, I forked an open-source MMORPG called Mercenaries of Astonia. Eleven years later, it's still the project that drives me — here's how a dusty C codebase became a modern containerized platform."
         />
       </Head>
 
@@ -23,7 +23,7 @@ export default function BuildingUgaris() {
             <h1>Building Ugaris: A Decade-Long Journey in Game Development</h1>
             <div className={styles.meta}>
               <span>April 2026</span>
-              <span>6 min read</span>
+              <span>8 min read</span>
             </div>
           </div>
 

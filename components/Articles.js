@@ -9,15 +9,15 @@ export default function Articles() {
       date: "April 2026",
       readTime: "6 min read",
       excerpt:
-        "In 2014, I forked an open-source MMORPG called Mercenaries of Astonia. I played this game as a child. I met my wife on this game. Eleven years later, it's still the project that drives me — here's the story of how a dusty C codebase became a modern cloud-native platform.",
+        "In 2014, I forked an open-source MMORPG called Mercenaries of Astonia. I played this game as a child. I met my wife on this game. Eleven years later, it's still the project that drives me — here's the story of how a dusty C codebase became a modern containerized platform.",
     },
     {
       slug: "homelab-odyssey",
       title: "From Bare Metal to Kubernetes: A Homelab Odyssey",
       date: "April 2026",
-      readTime: "5 min read",
+      readTime: "8 min read",
       excerpt:
-        "It started with a laptop. Then a Raspberry Pi. Then a second-hand desktop. Now it's a full enterprise rack with four Proxmox servers, a 7-node Talos Kubernetes cluster, and VLANs named after Game of Thrones houses. Here's what I learned along the way.",
+        "It started with a forum in high school. Then gaming clans needed voice servers. Then a custom ladder system required learning to code. Now it's a full enterprise rack with four Proxmox servers, a 7-node Talos Kubernetes cluster, and VLANs named after Game of Thrones houses. Here's what I learned along the way.",
     },
     {
       slug: "llms-engineering-trenches",

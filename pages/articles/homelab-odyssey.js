@@ -131,8 +131,9 @@ export default function HomelabOdyssey() {
               automations die. No pressure.
             </p>
             <p>
-              <strong>Baratheon</strong> is the NAS — 49TB of ZFS storage, and
-              still hosts the production Ugaris game servers via Docker.
+              <strong>Baratheon</strong> is the NAS — 49TB of ZFS storage,
+              serving NFS mounts to the Kubernetes cluster and providing
+              backup storage for the homelab.
               <strong>Greyjoy</strong> has a 24-disk ZFS RAIDZ2 pool running
               PBS backups, with room for future expansion. And
               <strong>Arryn</strong> is the new kid, running the Talos
