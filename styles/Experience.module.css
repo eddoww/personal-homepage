@@ -1,53 +1,99 @@
 .experience {
   background-color: var(--card-bg-color);
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .experience h2 {
   color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--card-border);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .job {
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--secondary-color);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--card-border);
 }
 
 .job:last-child {
   border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .job h3 {
   color: var(--secondary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.4rem;
 }
 
 .period {
   font-style: italic;
   color: var(--text-color);
-  opacity: 0.8;
-  margin-bottom: 1rem;
+  opacity: 0.85;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
 }
 
 .job ul {
   padding-left: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .job li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.6;
+  color: var(--text-color);
 }
 
 .technologies {
-  font-size: 0.9rem;
-  color: var(--text-color);
-  background-color: rgba(var(--primary-color), 0.1);
-  padding: 0.5rem;
-  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--tag-text);
+  background-color: var(--tag-bg);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .experience h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .job {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .job h3 {
+    font-size: 1.2rem;
+  }
+
+  .period {
+    font-size: 0.9rem;
+  }
+
+  .job li {
+    font-size: 0.9rem;
+  }
+
+  .technologies {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
 }

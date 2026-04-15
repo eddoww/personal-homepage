@@ -1,27 +1,50 @@
 .about {
-  background-color: var(--card-bg-color);
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--card-bg-color);
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .about h2 {
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 2rem;
 }
 
 .about p {
   margin-bottom: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+.about p:last-child {
+  margin-bottom: 0;
 }
 
 .about a {
   color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
+  text-decoration: underline;
+  transition: color 0.2s ease;
 }
 
 .about a:hover {
-  color: var(--secondary-color);
-  text-decoration: underline;
+  color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .about h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .about p {
+    font-size: 0.95rem;
+  }
 }

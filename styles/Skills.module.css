@@ -1,45 +1,48 @@
 .skills {
-  background-color: var(--card-bg-color);
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
-  margin-top: 2rem;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--card-bg-color);
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .skills h2 {
   color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--card-border);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
 .card {
-  background-color: var(--card-bg-color);
-  border: 1px solid var(--secondary-color);
+  background-color: var(--bg-color);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: var(--card-shadow);
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+  background-color: var(--card-bg-color);
 }
 
 .card h3 {
-  color: var(--primary-color);
-  font-size: 1.1rem;
+  color: var(--secondary-color);
+  font-size: 1.25rem;
   margin-top: 0;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .skillList {
@@ -52,21 +55,42 @@
   padding: 0.3rem 0;
   color: var(--text-color);
   font-size: 0.95rem;
+  display: flex;
+  align-items: center;
 }
 
 .skillItem::before {
-  content: "▸ ";
+  content: "\2022"; /* Unicode bullet point */
   color: var(--primary-color);
+  margin-right: 0.6em;
+  font-size: 1.2em;
+  line-height: 0;
+  vertical-align: middle;
 }
 
-@media (max-width: 992px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+  .skills {
+    padding: 1.5rem;
+    border-radius: 8px;
   }
-}
 
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
+  .skills h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .skillItem {
+    font-size: 0.9rem;
   }
 }
