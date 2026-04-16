@@ -4,6 +4,7 @@
   --primary-color: #2563eb;
   --primary-light: #3b82f6;
   --primary-dark: #1d4ed8;
+  --primary-color-rgb: 37, 99, 235;
   --secondary-color: #475569;
   --accent-color: #0ea5e9;
   --card-bg-color: #ffffff;
@@ -23,6 +24,7 @@
   --primary-color: #60a5fa;
   --primary-light: #93c5fd;
   --primary-dark: #3b82f6;
+  --primary-color-rgb: 96, 165, 250;
   --secondary-color: #94a3b8;
   --accent-color: #38bdf8;
   --card-bg-color: #18181b;
@@ -94,7 +96,35 @@ footer {
   border-top: 1px solid var(--footer-border);
 }
 
-@media (max-width: 768px) {
+/* Small phones */
+@media (max-width: 480px) {
+  body {
+    padding: 0 12px;
+  }
+
+  section {
+    padding: 1.25rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  footer {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets and small screens */
+@media (min-width: 481px) and (max-width: 768px) {
   body {
     padding: 0 16px;
   }

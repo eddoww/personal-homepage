@@ -17,7 +17,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -25,7 +25,7 @@
   background-color: var(--bg-color);
   border: 1px solid var(--card-border);
   border-radius: 8px;
-  padding: 1.8rem;
+  padding: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   box-shadow: var(--card-shadow);
 }
@@ -38,10 +38,10 @@
 
 .card h3 {
   color: var(--secondary-color);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-top: 0;
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--card-border);
 }
 
@@ -52,7 +52,7 @@
 }
 
 .skillItem {
-  padding: 0.3rem 0;
+  padding: 0.25rem 0;
   color: var(--text-color);
   font-size: 0.95rem;
   display: flex;
@@ -60,24 +60,19 @@
 }
 
 .skillItem::before {
-  content: "\2022"; /* Unicode bullet point */
+  content: "\2022";
   color: var(--primary-color);
   margin-right: 0.6em;
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 0;
   vertical-align: middle;
 }
 
-@media (max-width: 768px) {
-  .skills {
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-
-  .skills h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
+/* Tablets */
+@media (min-width: 481px) and (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .card {
@@ -85,9 +80,40 @@
   }
 
   .card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    padding-bottom: 0.6rem;
+    font-size: 1rem;
+  }
+
+  .skillItem {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .skills {
+    padding: 1.25rem;
+    border-radius: 6px;
+  }
+
+  .skills h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
   }
 
   .skillItem {

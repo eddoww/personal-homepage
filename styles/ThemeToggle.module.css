@@ -26,9 +26,18 @@
 
 @media (max-width: 768px) {
   .themeToggle {
-    top: 16px;
-    right: 16px;
-    font-size: 1.4rem;
+    top: 12px;
+    right: 12px;
+    font-size: 1.3rem;
     padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .themeToggle {
+    top: 8px;
+    right: 8px;
+    font-size: 1.2rem;
+    padding: 8px;
   }
 }

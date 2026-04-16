@@ -17,7 +17,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
@@ -73,27 +73,29 @@
   font-size: 0.9rem;
   font-weight: 600;
   transition: color 0.2s ease;
-  margin-top: auto; /* Pushes to bottom */
+  margin-top: auto;
 }
 
 .card:hover .readMore {
   color: var(--primary-dark);
 }
 
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
+/* Small phones */
+@media (max-width: 480px) {
   .articles {
-    padding: 1.5rem;
-    border-radius: 8px;
+    padding: 1.25rem;
+    border-radius: 6px;
   }
 
   .articles h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
     padding-bottom: 0.75rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .card {
@@ -104,7 +106,23 @@
     font-size: 1.05rem;
   }
 
+  .meta {
+    font-size: 0.8rem;
+  }
+
   .excerpt {
     font-size: 0.9rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .articles {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -33,7 +33,26 @@
   color: var(--primary-dark);
 }
 
-@media (max-width: 768px) {
+/* Small phones */
+@media (max-width: 480px) {
+  .about {
+    padding: 1.25rem;
+    border-radius: 6px;
+  }
+
+  .about h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .about p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
   .about {
     padding: 1.5rem;
     border-radius: 8px;
@@ -41,10 +60,5 @@
 
   .about h2 {
     font-size: 1.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .about p {
-    font-size: 0.95rem;
   }
 }

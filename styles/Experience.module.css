@@ -63,7 +63,50 @@
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
+/* Small phones */
+@media (max-width: 480px) {
+  .experience {
+    padding: 1.25rem;
+    border-radius: 6px;
+  }
+
+  .experience h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .job {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .job h3 {
+    font-size: 1.15rem;
+  }
+
+  .period {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .job ul {
+    padding-left: 1.2rem;
+  }
+
+  .job li {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .technologies {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
   .experience {
     padding: 1.5rem;
     border-radius: 8px;
@@ -71,29 +114,9 @@
 
   .experience h2 {
     font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-  }
-
-  .job {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
   }
 
   .job h3 {
-    font-size: 1.2rem;
-  }
-
-  .period {
-    font-size: 0.9rem;
-  }
-
-  .job li {
-    font-size: 0.9rem;
-  }
-
-  .technologies {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
+    font-size: 1.25rem;
   }
 }
