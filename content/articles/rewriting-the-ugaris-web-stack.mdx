@@ -1,0 +1,47 @@
+The Ugaris website has been rewritten more times than I'd like to admit. The original was PHP from 2014. Then came a Go API with an Astro frontend. And now it's a Rust API with a SvelteKit frontend. People sometimes ask why I keep rewriting it, and whether Go and Astro were bad choices.
+
+They weren't. Here's what actually happened.
+
+## The First Rewrite: Go and Astro
+
+In 2024 I started replacing the old PHP site. I picked Go with the Fiber framework for the API, and Astro for the frontend. Both were good choices. Go is fast, simple, easy to deploy, and you can read someone else's Go code without a headache. Astro is great for content sites: fast pages, very little JavaScript, and you can use components from other frameworks.
+
+That last part is also where it went a bit wrong. Over two years the site grew. Account pages, clan pages, a shop, an admin panel, a lot of content pages. Bit by bit Vue got mixed in for the interactive parts, so there were two component models side by side. Some components grew to over a thousand lines. Content pages were written as code files instead of content.
+
+None of that is Astro's fault. That's just what happens to a project when it grows for two years with one person working on it in the evenings. It got messy.
+
+## Why Rust
+
+I'll be honest, the main reason for Rust is that I wanted to learn it properly. The new Ugaris gateway was already written in Rust, and I wanted to get good at it, not just good enough. The compiler is strict, but once your code compiles, it usually does what you meant. That's a nice feeling for something that handles accounts, logins and payments.
+
+Go was fine. Really. If you're starting a backend project and you know Go, use Go. It's a great language and I'd pick it again for plenty of things. But for my own project, where I get to choose, I wanted to get good at Rust. So the API became a Rust project.
+
+The new API runs on axum and sqlx against the same MariaDB database. It covers everything the Go version did, like accounts, characters, clans, news, the shop, Discord linking and the admin panel, plus a new content system for the website. Passwords are hashed with the same Argon2id settings as the Go version, so existing passwords keep working without anybody noticing.
+
+## Proving It's the Same
+
+The scariest part of a rewrite is breaking things that used to work. So I recorded real requests against the Go API and replayed them against the Rust one. 164 of 165 came back identical. On top of that the Rust API has over a thousand tests.
+
+Rewriting also has a nice side effect. To port every handler, you have to actually read every handler. That turned up a few real bugs in the old Go code that had been sitting there for a long time. They get fixed before the switch.
+
+## Why SvelteKit
+
+For the frontend the problem wasn't Astro, it was what the site had become. With account pages, a big admin panel and a built-in CMS, it isn't really a content site anymore. It's an app with some content in it. SvelteKit fits that a lot better.
+
+And I'll admit it: I just really like writing Svelte. Svelte 5 is clean, the components are small and readable, and it doesn't fight you.
+
+One design rule I'm happy with: the browser never talks to the API directly. Every API call goes through SvelteKit's server side. That keeps the session out of the browser and keeps the API private.
+
+The new site has 72 pages, including a big admin panel, a CMS with drafts, revisions and a media library, site-wide search, an interactive world atlas and a browser for game data. There are about 1,100 unit tests and a Playwright suite that checks 71 pages on desktop and phone.
+
+## Faster Than Expected
+
+Both rewrites went a lot faster than I expected. AI agents did a big part of the heavy lifting, especially the porting work: going through hundreds of endpoints and making sure every detail matched. The frontend had its first working version on the preprod site within about a day.
+
+My job was making the decisions, reviewing everything, and testing until I trusted it. That's what makes a rewrite like this possible for one person in their spare time.
+
+## The Verdict
+
+Go and Rust are both great. Astro and SvelteKit are both great. The choice matters less than people think. Pick what you know, or what you want to get good at, and keep the project clean as it grows.
+
+The Go and Astro code is archived now, and I learned a lot building it. The Rust API and the SvelteKit site take over around the Steam launch.

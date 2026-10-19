@@ -1,0 +1,54 @@
+Ugaris has had a Steam store page for years. It's been saying "Coming soon" for so long that at one point the page listed a 2014 release date and a 300 MHz minimum CPU. So what took so long?
+
+Honestly, two things. The game wasn't ready, and life happened.
+
+## Not Ready Yet
+
+I wasn't going to put Ugaris on Steam with a client from 2002, a separate launcher, and a website that looked like it was from 2012. Steam players expect a game that starts, looks decent, and doesn't ask them to make an account on some website first. For a long time Ugaris just wasn't that.
+
+And Ugaris is a hobby project. It gets evenings and weekends. In those years I changed jobs, we moved to Vestfold, and we had a son. Steam was always the next big thing, and it kept being the next big thing.
+
+What changed is that the pieces finally came together: the new Godot client, Steam sign-in, a proper website, and a release pipeline that doesn't depend on me doing things by hand.
+
+## No Manual Uploads
+
+The goal was simple. I never want to upload a build to Steam by hand.
+
+Everything lives in GitHub. The client and the resources (sprites, sounds, music, fonts) each have their own repo. When one of them makes a new release, it sends an event to Ugaris_Distribution. That repo collects the latest version of everything, puts the game together for every platform, checks it, and uploads it to Steam.
+
+There's also a watcher that checks every hour for new releases, in case an event got lost. It has run thousands of times by now. Most of the time it finds nothing and goes back to sleep, which is exactly what you want from a watcher.
+
+## Internal Testing First
+
+Every new build goes to an internal-testing branch on Steam automatically. That's where I test it. Does it start? Can I log in? Does the update actually contain what I think it contains?
+
+Only when I'm happy, I move that build to the default branch by hand, and then everyone gets the update. That one step is manual on purpose. Automate everything up to the point where real players get it, and keep a human for that last click.
+
+## Signing Mac Builds from Linux
+
+macOS was the annoying one. Apple wants apps to be signed and notarized, otherwise macOS tells your players the app is broken or dangerous. Normally that means you need a Mac in your pipeline.
+
+I don't have a Mac in my pipeline. So the macOS builds are signed and notarized from Linux, using rcodesign. It took some figuring out, but now macOS builds go through the same pipeline as Windows and Linux, and nobody has to touch a Mac.
+
+## Making Sure What Ships Is Right
+
+A game is a lot of files, and Ugaris has a lot of old ones. Sprites from the original game, sounds, music, fonts, and all the new stuff on top. For years these lived in an S3 bucket, without a clear record of where every file came from.
+
+Now all of it lives in one repo, Ugaris_Resources, with a proper catalogue. Every sprite has an id, an owner and a license, and every set of sprites is catalogued. A build script turns all of that into the files that actually ship, and it gives the same result every time.
+
+Then I hardened the pipeline:
+
+- Every file that ships is checked by SHA-256 hash and size. If something doesn't match, the deploy stops.
+- Graphics ship in a new indexed pack format instead of ZIP files, which cut 1.37 GB from the build.
+- A client build without a manifest is refused. No more "I think this is the right version".
+- If a deploy fails, the next hourly run just tries again.
+
+It sounds like a lot of process for a hobby project. But when it breaks, I'm the only one there to fix it, so I'd rather it doesn't break.
+
+## Almost There
+
+The release is close now. The production cutover is planned, the Steam build is tested on internal-testing, and the last bugs are being fixed. I'm not putting a date in an article, because dates have a habit of moving, but it's soon.
+
+After that, the real work starts: crafting and resource gathering, new areas, and a lot of new quests to fill the gaps in leveling. Levels 130 to 150 are already being tested on a dev server somewhere.
+
+It took way longer than it should have. But Ugaris is finally going to be on Steam, and it's going to be a version of the game I'm really proud of.

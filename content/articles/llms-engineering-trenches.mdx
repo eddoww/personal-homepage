@@ -1,0 +1,59 @@
+I've been using AI coding agents seriously for a while now, at work and at home. At some point I started pushing for them at work. Not as a hype thing, but because I'd seen what they could do, and I wanted my colleagues to have that too.
+
+This is what I learned from coaching engineers to actually work with these tools.
+
+## How It Started
+
+At Kongsberg Discovery we have GitHub Copilot. Most people know Copilot as the thing that finishes your line of code in the editor. That's fine, but it's only a small part of what it can do. I use the same Copilot models through OpenCode, an agent that runs in the terminal. It can read the whole repo, search through code, run commands, edit files and make commits. That's a completely different way of working.
+
+So I started showing people. Live demos on our own codebases, workshops for bigger groups, and a lot of pairing sessions where I sat next to someone while they tried it on their own work. I also made templates people could just copy, mostly AGENTS.md files and prompts that worked well for us.
+
+## The Reactions
+
+They were mixed, which is pretty much what I expected. Some people jumped in right away. Some were skeptical, and honestly they had good reasons. AI does produce bad code sometimes, and if you've only seen the bad examples, why would you trust it? Most people were somewhere in between: curious, but not sure where to start or what it was actually good for.
+
+What changed people's minds was never a slide. It was seeing it work on their own code.
+
+## The Moment It Clicked
+
+One demo stands out. I showed a colleague that the agent could read a work item in Azure DevOps on its own, do the task, and then report back on the work item when it was done. No intervention from the engineer at all. All they had to do was review the work in a pull request and merge it. And it did it well.
+
+That was a real brain explosion moment. Not because it could write code, they'd seen that before. It was the fact that it could talk to other tools and systems. Work items in Azure DevOps. Email through an Outlook connection. Controlling a browser to send a ticket to IT. Once they saw that, the ideas just kept coming.
+
+That person never stopped using agents after that.
+
+## Context Is the Real Work
+
+The biggest difference between "the AI wrote garbage" and "the AI did this better than I would have" is almost always context. An agent dropped into a repo with no information is going to guess. And it guesses with a lot of confidence.
+
+That's where AGENTS.md comes in. It's a file in the root of the repo that tells the agent how the project works: how to build it, how to test it, which conventions we follow, what not to touch, where things live. Basically the stuff you'd tell a new colleague in their first week. Once a repo has a good AGENTS.md, the results get a lot better, and they stay better.
+
+A nice side effect: our repos are better documented now. The agents need it, so it actually gets written. And it turns out humans like it too.
+
+## You Own the Output
+
+If there's one thing I want people to take away from this, it's this one. You own the output. If an agent writes the code and you merge it, it's your code. Your name is on the commit and your name is on the incident when it breaks.
+
+The skill doesn't go away, it moves. You spend less time typing and more time judging. Is this the right approach? Does it handle the edge cases? Is it doing something weird I didn't ask for? That's real engineering work, and you can't skip it.
+
+In practice, everything an agent writes goes through the same branch policies and pull request reviews as everything else. No shortcuts.
+
+## What to Watch Out For
+
+**Not reviewing.** The fastest way to get burned. A 900-line diff that "looks fine" is not reviewed. If it's too big to review properly, it's too big. Make the agent do smaller steps.
+
+**Secrets and data.** We only use the company-approved tools on company code, and credentials and customer data stay out of prompts and repos. That sounds obvious, but when you're moving fast and pasting a log file to an agent, it's easy to forget what's in that log.
+
+**Skill atrophy.** This one worries me the most for juniors. If the AI always types for you, when do you learn the fundamentals? You can't judge code you don't understand. I tell people to use agents to learn faster, not to avoid learning. Ask it why. Read what it did. Do the hard parts yourself sometimes.
+
+## How I Work Now
+
+My own way of working has changed a lot. I write a lot less code myself and review a lot more. I write specs, I steer, I check, I push back. Often I have several agents working at the same time on different repos or branches while I go back and forth between them.
+
+And I ship way more. Things that were "someday" projects for years are actually getting done now. This website is one of them. The new Ugaris client is another. That's not because the AI does everything, it's because the boring parts stopped eating all my time.
+
+## Is It Coming for Our Jobs?
+
+I don't think it replaces engineers. It changes the job. The engineers who learn to use it well will replace the ones who don't, the same way it went with every big tool before it. The work moves up a level: less typing, more thinking, more responsibility for what gets shipped.
+
+So my advice is simple. Start using it now, on real work. Give it good context. Review everything. And remember that you're still the engineer.

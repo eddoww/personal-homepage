@@ -1,0 +1,63 @@
+For years the Ugaris client was a C program. It started as the Astonia community client, and in December 2025 I moved it from SDL2 to SDL3. It worked. But every time I wanted to make the game feel more modern, I ran into the same wall. So in September 2026 I started an experiment: what if the client was built in Godot?
+
+Six weeks later that experiment is the client we're shipping on Steam.
+
+## Why Godot
+
+The honest answer is that building a modern interface by hand in C is painful. Every window, every button, every bit of layout is code you write and maintain yourself. Want a scrollable list that resizes properly? That's an afternoon. Want it to look good at four different zoom levels? Good luck.
+
+Godot gives you all of that for free. A real UI toolkit, shaders, lighting, cameras, audio, and builds for Windows, macOS and Linux. Instead of spending my time writing a UI framework, I could spend it on the game.
+
+And it started as an experiment, nothing more. I wanted to see if the old wire protocol could talk to a Godot client at all, and how far I could get.
+
+## How the Port Worked
+
+The old client is around 66,000 lines of C. The first step wasn't writing Godot code, it was writing down exactly what the C client does. Every packet, every screen, every little rule, with references to the original code. That spec ended up being a lot bigger than I expected, but it meant the new client had something exact to follow.
+
+On top of that I wrote contracts: which part of the client owns what, and how the pieces talk to each other. With a clear spec and clear boundaries, a lot of the work could happen in parallel, and AI agents did a big part of it. My job was mostly deciding, reviewing and testing.
+
+The rule was that the Godot client talks the same protocol to the same, unmodified game server. Any place where it behaves differently from the old client has to be written down on purpose. Nothing is allowed to be different by accident.
+
+## Parked, Then Chosen
+
+Here's the funny part. Two days after I started, I officially parked it, as "a side project that might become the main client someday".
+
+Three weeks later it was the release client.
+
+It just got good really fast. Once the basics worked, every week it gained things the C client never had, and going back to the C client started to feel like going back in time.
+
+## From 16 FPS to 244
+
+The first real playtest was rough. On my own machine, a Ryzen 7700X with an RX 6950 XT, the game ran at 16 frames per second. Rebuilding the world took 48 ms, which is longer than one server tick. That's not "needs some tuning", that's broken.
+
+There were a few rounds of optimizing, but the big win was moving the hottest code (lighting and building the world view) into a native C++ extension for Godot. That part became 74 to 85 times faster. To make sure I didn't break anything, I replayed over 3,000 recorded game ticks through both versions and compared the results. They matched exactly. The GDScript version is still there as a fallback, and as the reference to test against.
+
+Rebuilding the world now takes under a millisecond, and the game runs at the 244 FPS cap.
+
+## What's New
+
+The point was never to make an exact copy of the old client. The point was to make it better.
+
+**The interface** got a full redesign. I built three working mockups and picked the direction I liked best.
+
+**Zoom and lighting** are completely new. You can zoom in up to 4x, or all the way out to see a whole map. The lighting is smooth now instead of blocky, there's fog of war, and light and line of sight are calculated on the GPU.
+
+**Maps.** There's a rendered minimap, and a proper world map with map art, quest objectives and even what merchants are selling.
+
+**Character selection and sign-in** are part of the client now. You log in with Steam: the client gets a ticket from Steam, and the server checks that ticket. No more passwords being sent over the connection.
+
+**Voiced NPCs.** NPCs actually talk now, and more voice lines are coming.
+
+And a lot more: Steam overlay, rich presence, screenshots and cloud saves.
+
+## The Launcher Had to Die
+
+Ugaris used to have a separate Electron launcher that handled login, news and updates, and then started the game. It worked for a while, but on Steam it caused more problems than it solved. Two programs both talking to Steam for the same game. The Steam overlay that broke because of a workaround we needed. Steam Deck rules that made it awkward. Cloud saves syncing at the wrong moment.
+
+Once the Godot client could do sign-in, character selection and news itself, the launcher had no reason to exist anymore. In October 2026 it was removed from the Steam build. One program now, and it starts straight into the game.
+
+## What's Still Rough
+
+It's not perfect yet. Windows on ARM has never run. macOS is only tested in CI so far. There are still edge cases I haven't been able to test, because they need things like a second character or a full clan to reproduce. And I still haven't done a proper pixel-by-pixel comparison against the old client.
+
+But it's the client I'm proud to put on Steam. A 20-year-old game, a client that's six weeks old, and it finally looks and feels like the game I always wanted it to be.
