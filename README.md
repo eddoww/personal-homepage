@@ -10,7 +10,7 @@ The source of [edwindejong.net](https://edwindejong.net) (and [edwindejong.com](
 - React 19, CSS Modules, no UI framework
 - MDX for articles (`@next/mdx`, `remark-gfm`, `rehype-slug`)
 - Self-hosted Inter and JetBrains Mono via Fontsource
-- [`@react-pdf/renderer`](https://react-pdf.org/) for the CV PDF, generated at build time
+- [`@react-pdf/renderer`](https://react-pdf.org/) for the CV PDF, exported as a static file by `next build`
 - Hosted on [Cloudflare Pages](https://pages.cloudflare.com/)
 
 ## Where things live
@@ -20,10 +20,10 @@ The source of [edwindejong.net](https://edwindejong.net) (and [edwindejong.com](
 | `lib/site.js` | **All profile content**: experience, skills, Ugaris, homelab, side projects, personal. The homepage, `/cv/` and the PDF all render from here. |
 | `lib/articles.js` | Article index (title, date, tags, excerpt, `published` flag) |
 | `content/articles/*.mdx` | Article bodies |
-| `app/` | Routes: `/`, `/cv/`, `/writing/[slug]/`, sitemap, robots, OG image, 404 |
+| `app/` | Routes: `/`, `/cv/`, `/writing/[slug]/`, `/edwin-de-jong-cv.pdf`, sitemap, robots, OG image, 404 |
 | `components/home/` | Homepage sections |
 | `components/CommandPalette.jsx` | `/` or `Ctrl+K` jump menu, and the `~` shell easter egg |
-| `scripts/build-cv-pdf.mjs` | Renders `out/edwin-de-jong-cv.pdf` after `next build` |
+| `lib/cv-pdf.js` | The CV PDF layout, rendered by `app/edwin-de-jong-cv.pdf/route.js` (fonts in `assets/fonts/`) |
 | `public/_headers`, `public/_redirects` | Cloudflare Pages headers and redirects (old `/articles/*` URLs → `/writing/*`) |
 
 ### Adding an article
@@ -44,7 +44,7 @@ Requires Node 20.9+ (Pages builds with the version in `.nvmrc`).
 ```sh
 npm install
 npm run dev        # http://localhost:3000
-npm run build      # static export to out/, plus the CV PDF
+npm run build      # static export to out/, CV PDF included
 npm start          # serve out/ locally
 ```
 
