@@ -1,0 +1,69 @@
+It didn't start with a rack, and it definitely didn't start with Kubernetes. It started in high school, when I wanted my own website. I set up an Invision Power Board forum on whatever cheap shared hosting I could afford. I was probably the first teenager in my hometown with his own website, back when that actually meant something. Having your own little corner of the internet felt like magic.
+
+## Forums, Clans and Voice Servers
+
+Then came gaming, and with gaming came clans, guilds and communities. Every community needed a forum to call home, and a voice server. TeamSpeak was king back then, and I hosted all of it. vBulletin, Invision Power Board, phpBB: I ran each of them at some point, often for years. Joomla, WordPress and Drupal too. If it could host a community site, I probably deployed it at some point.
+
+It was always the same pattern. Find a community that needs something, build it, run it, keep it running. I wasn't just running software, I was the infrastructure guy before I knew that was a job.
+
+## Learning to Code Because Nothing Fit
+
+At some point hosting other people's software wasn't enough anymore. One of our gaming communities needed a ladder system to track rankings and matches, and nothing out there fit the way we actually played. So I started learning to program.
+
+That led me to Laravel, and from there to more projects than I can count. The pattern stuck: I build things because I need them. Always things that are useful, not just interesting. If a community needed something, I'd figure out how to build it.
+
+## The Hetzner Years
+
+For a long time everything ran on one dedicated server at Hetzner, with Virtualmin and Webmin managing somewhere between ten and twenty websites. It worked, and it worked well, but Hetzner isn't cheap when you run that many sites and most of them don't get much traffic. I did the math and figured I could probably do it cheaper myself.
+
+So why not at home?
+
+That's where the old laptop came in, repurposed as a home server. It worked, sort of, until it didn't. It overheated during a gaming event and took everything down with it, and that's when I realized I had to do this properly.
+
+Around the same time I got into smart homes. Home Assistant opened up a whole new world of automation. And of course the \*arr stack for the home cinema (Sonarr, Radarr, Prowlarr, Bazarr). If you're going to self-host, you might as well self-host everything.
+
+## The Progression
+
+After the laptop came a Raspberry Pi. Then a second-hand desktop from Finn.no. Then another desktop. Then a real server, and then another one. At some point I looked at the pile of hardware and thought I should probably organize this. That's how the homelab was born.
+
+Ugaris drove a lot of these upgrades. The game needed a database, so I needed a machine for it. The database needed backups, so I needed storage. The website needed hosting, and the Discord bot had to run somewhere. Every new requirement pushed me to the next piece of infrastructure, and before I knew it I was building an actual data center in my house.
+
+## The Proxmox Cluster
+
+Today the homelab is four Proxmox VE hosts in one cluster: two Dell PowerEdge R730xds, an older Dell PowerEdge doing NAS duty, and a small HP EliteDesk that runs the house. They're named after Game of Thrones houses, because naming things is hard and I refuse to call my servers "server-01" to "server-04". There are only two hard problems in computer science: cache invalidation, naming things, and off-by-one errors.
+
+**Tully** is the smart home server. It runs Home Assistant, Frigate NVR, N8N, MQTT, Zigbee2MQTT, Nextcloud and OpenClaw. It's the workhorse of daily life. If Tully goes down, the lights stop working, the cameras go blind and the automations die. No pressure.
+
+**Baratheon** is the NAS, with around 42 TB of usable ZFS storage. It serves NFS to the Kubernetes cluster and holds backups for the rest of the homelab.
+
+**Greyjoy** is an R730xd with 24 disks in two RAIDZ2 vdevs. It runs Proxmox Backup Server for everything else, and there's still room to grow.
+
+**Arryn** is the big one: another R730xd with 128 GB of RAM and twelve 3 TB disks in RAIDZ2. It runs most of the Talos Kubernetes workers and the new Ugaris infrastructure, with separate dev, pre-production and production environments, a replicated MariaDB cluster, CI runners and monitoring.
+
+## The Kubernetes Journey
+
+Do I need a six-node Talos Kubernetes cluster at home? Absolutely not. Was it fun to set up? Heck yea.
+
+I'd been using Kubernetes at work for a while, but never really understood it from the infrastructure side. Running pods, sure. Managing the cluster was someone else's problem. Building my own cluster on Talos Linux, an immutable OS made just for Kubernetes, forced me to learn every layer: certificates, bootstrapping nodes, networking, storage classes, ingress controllers. Now when something breaks in the cluster I know where to look, because I built it from scratch.
+
+The cluster runs the Ugaris web services, the Astro frontend, the Go API, Listmonk for newsletters, cert-manager for TLS, and monitoring with Prometheus and Grafana. The Ugaris game servers still run in Docker outside the cluster for now, but Kubernetes is ready for them. Maybe once the Steam release happens we'll make the move. Over-engineered? Absolutely. But it's built right.
+
+## Networking
+
+The network is the part I'm most proud of. Everything is split into VLANs: the smart home devices have their own network, Ugaris production has its own isolated VLAN, and general services live on another one. There's VPN access for remote management, and firewall rules that actually make sense. It's very well put together, if I say so myself.
+
+The Ubiquiti UDM Pro ties it all together. One place to manage everything, deep packet inspection, and more dashboard graphs than my inner nerd knows what to do with. I can see exactly what's talking to what, and I can cut off any device or VLAN in a couple of clicks. With smart devices, cameras and game servers all in one house, that kind of control matters.
+
+## What I Learned
+
+Every stage taught me something different. Forums and shared hosting taught me about web servers, DNS, and running things people depend on. Hetzner taught me about dedicated servers and what outsourcing really costs. Running bare metal at home taught me about hardware: what fails, what overheats, and why you don't cheap out on power supplies. Containers taught me about isolation, and why "it works on my machine" is a problem. Kubernetes taught me how to manage complexity without losing track of what's going on.
+
+And the whole thing confirmed something I've always believed. You don't really understand a system until you've built it, broken it and fixed it yourself. Reading docs is good and courses are fine, but running real workloads on your own hardware, with nobody to call when it breaks at 2 AM, is where you actually learn.
+
+## Why I Do It
+
+People ask me why I bother. Why spend the time and money on a homelab like this when the cloud exists? Why run your own email, your own DNS, your own monitoring, your own everything?
+
+It's not about needing it. It's about understanding how things work on the inside. Everything I've picked up in the homelab (Terraform, Ansible, Kubernetes, networking, monitoring) I use at work too. Every outage I've debugged at home made me faster at debugging outages at work. The homelab is my lab, my playground, and my proof that I can build and run real infrastructure.
+
+Also, it's just really satisfying to see everything light up green in Grafana. Not going to pretend otherwise.

@@ -1,0 +1,4 @@
+# Old Pages Router article URLs moved to /writing/
+/articles/*  /writing/:splat  301
+/resume      /cv/             301
+/cv.pdf      /edwin-de-jong-cv.pdf  301

@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated at build time from /cv
+/public/edwin-de-jong-cv.pdf

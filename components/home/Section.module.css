@@ -1,0 +1,35 @@
+.section {
+  padding: clamp(56px, 8vw, 96px) 0 0;
+}
+
+.head {
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.path {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-faint);
+  letter-spacing: 0.01em;
+}
+
+.hash {
+  color: var(--accent);
+}
+
+.title {
+  margin-top: 10px;
+  font-size: clamp(30px, 4.2vw, 44px);
+  letter-spacing: -0.035em;
+}
+
+.intro {
+  margin-top: 14px;
+  max-width: 640px;
+  font-size: 17px;
+  color: var(--text-muted);
+}
+
+.wide {
+  max-width: 760px;
+}

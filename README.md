@@ -1,77 +1,69 @@
-# Edwin de Jong - Personal Homepage
+# Edwin de Jong · Personal Homepage
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/eddoww/personal-homepage)
-![GitHub](https://img.shields.io/github/license/eddoww/personal-homepage)
 
-Welcome to the repository of my personal homepage!
+The source of [edwindejong.net](https://edwindejong.net) (and [edwindejong.com](https://edwindejong.com)): a CV, the Ugaris story, the homelab, and some writing.
 
-## 🚀 Live Demo
+## Stack
 
-Visit my personal homepage: [https://edwindejong.net](https://edwindejong.net)
+- [Next.js 16](https://nextjs.org/) App Router, statically exported (`output: "export"`)
+- React 19, CSS Modules, no UI framework
+- MDX for articles (`@next/mdx`, `remark-gfm`, `rehype-slug`)
+- Self-hosted Inter and JetBrains Mono via Fontsource
+- [`@react-pdf/renderer`](https://react-pdf.org/) for the CV PDF, generated at build time
+- Hosted on [Cloudflare Pages](https://pages.cloudflare.com/)
 
-## 🛠 Tech Stack
+## Where things live
 
-- [Next.js](https://nextjs.org/) - React framework for production
-- [React](https://reactjs.org/) - JavaScript library for building user interfaces
-- [CSS Modules](https://github.com/css-modules/css-modules) - Scoped CSS for components
-- [Cloudflare Pages](https://pages.cloudflare.com/) - Hosting and continuous deployment
+| Path | What |
+| --- | --- |
+| `lib/site.js` | **All profile content**: experience, skills, Ugaris, homelab, side projects, personal. The homepage, `/cv/` and the PDF all render from here. |
+| `lib/articles.js` | Article index (title, date, tags, excerpt, `published` flag) |
+| `content/articles/*.mdx` | Article bodies |
+| `app/` | Routes: `/`, `/cv/`, `/writing/[slug]/`, sitemap, robots, OG image, 404 |
+| `components/home/` | Homepage sections |
+| `components/CommandPalette.jsx` | `/` or `Ctrl+K` jump menu, and the `~` shell easter egg |
+| `scripts/build-cv-pdf.mjs` | Renders `out/edwin-de-jong-cv.pdf` after `next build` |
+| `public/_headers`, `public/_redirects` | Cloudflare Pages headers and redirects (old `/articles/*` URLs → `/writing/*`) |
 
-## 🌟 Features
+### Adding an article
 
-- Responsive design for optimal viewing on all devices
-- Static site generation for fast loading times
-- Easy-to-update content structure
-- SEO-friendly
+1. Write `content/articles/<slug>.mdx`.
+2. Add an entry to `lib/articles.js` with `published: true`.
 
-## 🔧 Local Development
+Unpublished entries still get a "coming soon" page, marked `noindex`, and are left out of the listing and the sitemap.
 
-To set up this project locally:
+### Homelab numbers
 
-1. Clone the repository:
+The homelab section is hand-maintained in `lib/site.js`. It deliberately publishes specs and service categories only: no IPs, internal hostnames, domains or VLAN IDs.
 
-   ```
-   git clone https://github.com/eddoww/personal-homepage.git
-   cd personal-homepage
-   ```
+## Development
 
-2. Install dependencies:
+Requires Node 20.9+ (Pages builds with the version in `.nvmrc`).
 
-   ```
-   npm install
-   ```
+```sh
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # static export to out/, plus the CV PDF
+npm start          # serve out/ locally
+```
 
-3. Run the development server:
+The build caps static generation at 4 workers (`experimental.cpus` in `next.config.mjs`).
 
-   ```
-   npm run dev
-   ```
+## Deployment
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
-
-## 🚢 Deployment
-
-This site is automatically deployed to Cloudflare Pages when changes are pushed to the `main` branch. The build process is handled by Cloudflare Pages using the following settings:
+Cloudflare Pages builds `main` on every push:
 
 - Build command: `npm run build`
 - Output directory: `out`
+- Node version: from `.nvmrc`
 
-## 👨‍💻 About Me
+Both `edwindejong.net` and `edwindejong.com` (with and without `www`) point at the same Pages project.
 
-I'm Edwin De Jong, an experienced DevOps Engineer and Software Developer based in Baerum, Akershus, Norway. I specialize in infrastructure management, automation, and full-stack development. I'm passionate about building secure, efficient, and scalable solutions.
+## Easter eggs
 
-- 📧 Email: [info@edwindejong.net](mailto:info@edwindejong.net)
-- 🌐 Website: [https://edwindejong.net](https://edwindejong.net)
-- 💼 LinkedIn: [Edwin de Jong](https://www.linkedin.com/in/edwin-de-jong)
-- 🐙 GitHub: [@eddoww](https://github.com/eddoww)
+Press `~` anywhere. Or try the Konami code.
 
-## 🤝 Contributing
+## License
 
-While this is primarily a personal project, I'm open to suggestions and improvements. Feel free to open an issue or submit a pull request if you have any ideas to enhance this project.
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-Built with ❤️ by Edwin de Jong
+This project is open source and available under the MIT License.

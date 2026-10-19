@@ -1,0 +1,36 @@
+.wrap {
+  max-width: 720px;
+  padding-top: clamp(64px, 12vw, 140px);
+}
+
+.term {
+  margin: 0 0 32px;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  overflow-x: auto;
+}
+
+.ps1 {
+  color: var(--accent);
+}
+
+.code {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.title {
+  font-size: clamp(36px, 6vw, 56px);
+  letter-spacing: -0.04em;
+}
+
+.text {
+  margin: 14px 0 28px;
+  color: var(--text-muted);
+  font-size: 17px;
+}

@@ -1,0 +1,51 @@
+In 2014 Daniel Brockhaus did something I didn't see coming. He open-sourced Mercenaries of Astonia, the MMORPG he'd built and run for years at Intent Software. I grabbed the code the moment I saw it. I didn't have a plan, and I didn't think I could do better than him. This was just the game I played as a kid, the game where I met my wife, and the idea of running my own server, changing things and finding out how it all worked was impossible to ignore.
+
+## The Codebase
+
+The first thing I found out when I opened the source: whoever wrote this was a genius, a madman, or both. It was old-school C, the kind that assumes you know what you're doing with memory and doesn't bother checking. Quest states, NPC states, character data, all of it was stored as raw memory dumps. Literally memcpy'd from server memory straight into the database. No schema, no normalization, just binary blobs that only the server itself could read.
+
+The patterns were obscure but clever. It was a hobby project in the best sense of the word, built by someone who cared a lot about the game and not at all about how software is "supposed" to be written. I loved it.
+
+## Getting It Running
+
+Getting it to compile was the first fight. Getting it to actually run was the second. I rented a CentOS dedicated server at Hetzner, which was way too much hardware for what I needed, but I didn't know that yet. I just wanted to see the world load and walk around in the game I'd been playing since I was a kid.
+
+But a game server without players is just a sad process listening on a port. There was no website and no way to sign up. So I built the first account and character creation page: a barebones PHP site with a login form, a database, and calls to compiled C executables that did the actual work of creating accounts and characters. I'm not proud of the PHP I wrote back then. "Unsafe" doesn't really cover it. But it worked, and that was enough.
+
+After that I spent a lot of time on what was, for its time, a pretty impressive website. Player profiles, high scores, game stats, community features. It's more than ten years old now and very outdated, which is exactly why we're building a new one. Back then though, it felt like I was building a world and not just a website.
+
+Once people could register, create a character and download the client, it started to feel real. People signed up. Old friends found each other again. People who knew each other from the original game were suddenly playing together in Ugaris. That was a really special time.
+
+Then we wanted to start changing things, which meant actually digging into the code...
+
+## Why I Care So Much
+
+Let me be clear about one thing: Ugaris was never about money. Not about fame either, or a portfolio piece, or proving something to someone. I played this game as a kid and I met my wife in it. The world, the mechanics and the people shaped who I am. Building something from that codebase is my way of keeping it alive, so the game didn't just disappear when the original servers went offline.
+
+All the late nights, the weekends and the design decisions I've overthought come back to that. The game gave my life meaning. This is me giving something back.
+
+## Fixing the Data
+
+The BLOB migration was the first big one. I'd been running the server for a while when I realized that because everything was a memory dump, I couldn't query anything. Want to know how many players finished a certain quest? Not possible. Want to find out why an NPC is acting weird? Good luck reading binary. So I started the long and pretty scary job of turning every blob into proper database tables.
+
+It took months. One wrong step could corrupt player data, so every migration had to be reversible. I tested a lot, backed up everything, and moved one table at a time. When it was done I could finally query the database like a normal person. It's still the most important change I've made to Ugaris.
+
+After that came connection pooling and ProxySQL for load balancing. That turned a fragile setup with a single database connection into something that can handle a lot of players at once without falling over. Then came Docker: every service in its own container, proper dependencies, and deploys you can actually repeat. I've thought about moving everything to Kubernetes, and that might happen around the Steam release. For now Docker does the job, and I'd rather have something stable than complexity I don't need yet.
+
+## What It Runs on Today
+
+Ugaris is a mix of languages, mostly because it grew that way over the years. The game server is still the original C core, battle-tested and still running. The client uses SDL3 for cross-platform graphics. There's a Go API for accounts, leaderboards and integrations. The website is being rebuilt in Astro to replace the old PHP site. The Discord bot is written in Python and syncs chat both ways between Discord and the game. The launcher is Electron, and there's a C++ chat server for real-time chat.
+
+On the infrastructure side it's a replicated MariaDB cluster behind ProxySQL, everything in Docker, separate dev, pre-production and production environments, and full CI/CD. It's way over-engineered for the number of players we have, and I don't care. It's built properly, and I learned something at every step.
+
+## The Players
+
+The Ugaris community is small but passionate. Some are nostalgic players who remember the original game, some found us through Discord or a friend, and some just think it's cool that someone is still building an isometric MMORPG in 2026. Most of it happens on Discord: development updates, bug reports, random chatter, and the occasional heated argument about game balance.
+
+I know most of them by name, and that's the nice part about a small community. You're not a ticket number, you're someone who cares about the same weird game I do.
+
+## Still Not Done
+
+Not everything worth doing has to be big. This is the codebase that taught me C, the migration that taught me databases, the infrastructure that got me into DevOps, and the community that kept me going when the code was fighting back.
+
+Ugaris isn't my job and it isn't a side hustle. It's the thing I keep building because I can't imagine not building it. Twelve years in and I'm still not done.

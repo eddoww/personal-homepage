@@ -1,0 +1,288 @@
+/* The CV is a "sheet": always light, A4-proportioned, and it prints to two
+   clean pages. The PDF in /out is rendered from this exact page. */
+
+.page {
+  padding-top: clamp(20px, 4vw, 40px);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: calc(860px + 2 * var(--gutter));
+  margin-bottom: 20px;
+}
+
+.path {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.toolActions {
+  display: flex;
+  gap: 10px;
+}
+
+.sheet {
+  --ink: #111827;
+  --ink-2: #374151;
+  --ink-3: #6b7280;
+  --rule: #e5e7eb;
+  --mark: #15803d;
+
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 52px 56px 40px;
+  background: #fff;
+  color: var(--ink-2);
+  border-radius: 6px;
+  box-shadow: var(--shadow-lg);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color-scheme: light;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.name {
+  font-size: 34px;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+
+.role {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--mark);
+  font-weight: 500;
+}
+
+.contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 3px;
+  font-size: 12.5px;
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.contact svg {
+  width: 13px;
+  height: 13px;
+  color: var(--ink-3);
+}
+
+.contact a {
+  color: var(--ink-2);
+}
+
+.block {
+  margin-top: 22px;
+}
+
+.block h2 {
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--mark);
+}
+
+.summary {
+  display: grid;
+  gap: 6px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+
+.job + .job {
+  margin-top: 16px;
+}
+
+.jobHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.jobHead h3 {
+  font-size: 15px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.jobHead h3 span {
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.dates {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.dates span {
+  color: var(--ink-3);
+}
+
+.loc {
+  margin-top: 1px;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.bullets {
+  margin: 7px 0 0;
+  padding-left: 16px;
+  display: grid;
+  gap: 3px;
+}
+
+.bullets li::marker {
+  color: var(--ink-3);
+}
+
+.stack {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 32px;
+}
+
+.skills {
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.skills dt {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 12.5px;
+}
+
+.skills dd {
+  margin: 0;
+  font-size: 12.5px;
+}
+
+.small {
+  font-size: 12.5px;
+}
+
+.projects {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12.5px;
+  display: grid;
+  gap: 2px;
+}
+
+.projects strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.sheetFoot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+@media (max-width: 760px) {
+  .sheet {
+    padding: 28px 22px;
+    border-radius: 0;
+    margin: 0 calc(-1 * var(--gutter));
+  }
+
+  .header,
+  .jobHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .contact li {
+    justify-content: flex-start;
+  }
+
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .toolbar .path {
+    display: none;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 14mm 12mm;
+  }
+
+  .page {
+    padding: 0;
+  }
+
+  .toolbar {
+    display: none;
+  }
+
+  .sheet {
+    max-width: none;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    font-size: 10pt;
+  }
+
+  .job,
+  .block h2 {
+    break-inside: avoid;
+  }
+
+  .block h2 {
+    break-after: avoid;
+  }
+
+  .contact a {
+    text-decoration: none;
+  }
+}
