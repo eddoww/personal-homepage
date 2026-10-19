@@ -34,7 +34,19 @@ After that came connection pooling and ProxySQL for load balancing. That turned 
 
 ## What It Runs on Today
 
-Ugaris is a mix of languages, mostly because it grew that way over the years. The game server is still the original C core, battle-tested and still running. The client uses SDL3 for cross-platform graphics. There's a Go API for accounts, leaderboards and integrations. The website is being rebuilt in Astro to replace the old PHP site. The Discord bot is written in Python and syncs chat both ways between Discord and the game. The launcher is Electron, and there's a C++ chat server for real-time chat.
+Ugaris is a mix of languages, mostly because it grew that way over the years, and a few parts have been rewritten more than once.
+
+The game server is still the original C core, battle-tested and still running, with a C++ chat server next to it. In front of the servers there's now a gateway written in Rust. It keeps one connection open per player and routes logins and area transfers to the right server instance, so I can manage server instances without players noticing.
+
+The client is completely new. For years it was the old C client on SDL, plus a separate Electron launcher. Both are gone now. Everything is one Godot client with a heavily reworked interface, a modern zoom and lighting system, character selection, a rendered minimap and world map, voiced NPCs, and a lot more. Sign-in goes through Steam: the client gets a Steam ticket and the server checks it, so passwords never get sent over the wire anymore.
+
+The web side went through two rewrites. The plan was a Go API with an Astro site, and I got pretty far with that. In the end I rewrote both again: the API is now Rust and the frontend is SvelteKit. The Go and Astro versions are archived, but I learned a lot building them.
+
+The Discord bot is still Python and syncs chat both ways between Discord and the game.
+
+Under the hood a lot changed too. All database changes are Flyway migrations in their own repo now, so every environment gets exactly the same schema. Valkey went from a small cache to the message bus between game areas: chat, clan notices, heartbeats and more. All the sprites, sounds and fonts live in a Ugaris_Resources repo with a proper catalogue, so I know where every asset came from and who owns it.
+
+Releases are automated as well. Ugaris_Distribution watches the client and resource repos. When there's a new build, it packs everything and pushes it to an internal-testing branch on Steam. Once I've tested and approved it, I move it to the default branch so everyone gets the update.
 
 On the infrastructure side it's a replicated MariaDB cluster behind ProxySQL, everything in Docker, separate dev, pre-production and production environments, and full CI/CD. It's way over-engineered for the number of players we have, and I don't care. It's built properly, and I learned something at every step.
 
@@ -43,6 +55,10 @@ On the infrastructure side it's a replicated MariaDB cluster behind ProxySQL, ev
 The Ugaris community is small but passionate. Some are nostalgic players who remember the original game, some found us through Discord or a friend, and some just think it's cool that someone is still building an isometric MMORPG in 2026. Most of it happens on Discord: development updates, bug reports, random chatter, and the occasional heated argument about game balance.
 
 I know most of them by name, and that's the nice part about a small community. You're not a ticket number, you're someone who cares about the same weird game I do.
+
+## What's Next
+
+The Steam release is the big one. After that, crafting and resource gathering are coming, plus a lot of new areas and quests to fill the gaps in leveling. Levels 130 to 150 are already being tested on a dev server somewhere.
 
 ## Still Not Done
 

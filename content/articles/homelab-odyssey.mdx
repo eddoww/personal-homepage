@@ -46,7 +46,7 @@ Do I need a six-node Talos Kubernetes cluster at home? Absolutely not. Was it fu
 
 I'd been using Kubernetes at work for a while, but never really understood it from the infrastructure side. Running pods, sure. Managing the cluster was someone else's problem. Building my own cluster on Talos Linux, an immutable OS made just for Kubernetes, forced me to learn every layer: certificates, bootstrapping nodes, networking, storage classes, ingress controllers. Now when something breaks in the cluster I know where to look, because I built it from scratch.
 
-The cluster runs the Ugaris web services, the Astro frontend, the Go API, Listmonk for newsletters, cert-manager for TLS, and monitoring with Prometheus and Grafana. The Ugaris game servers still run in Docker outside the cluster for now, but Kubernetes is ready for them. Maybe once the Steam release happens we'll make the move. Over-engineered? Absolutely. But it's built right.
+The cluster runs the Ugaris web services (the SvelteKit frontend and the Rust API), Listmonk for newsletters, cert-manager for TLS, and monitoring with Prometheus and Grafana. The Ugaris game servers still run in Docker outside the cluster for now, but Kubernetes is ready for them. Maybe once the Steam release happens we'll make the move. Over-engineered? Absolutely. But it's built right.
 
 ## Networking
 

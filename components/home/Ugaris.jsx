@@ -72,7 +72,7 @@ export default function Ugaris() {
         <div className={styles.cols}>
           <div>
             <h3 className={styles.h3}>
-              <span>$</span> docker compose ps
+              <span>$</span> ls ~/ugaris
             </h3>
             <ul className={styles.arch}>
               {ugaris.architecture.map((a) => (
@@ -88,7 +88,7 @@ export default function Ugaris() {
 
           <div>
             <h3 className={styles.h3}>
-              <span>$</span> git log --oneline
+              <span>$</span> git log
             </h3>
             <ol className={styles.log}>
               {ugaris.milestones.map((m) => (

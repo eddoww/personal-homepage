@@ -107,23 +107,11 @@ export default function CV() {
             </div>
             <p className={styles.loc}>Open-source MMORPG · ugaris.com · {ugaris.status}</p>
             <ul className={styles.bullets}>
-              <li>
-                Forked and modernized the open-source Mercenaries of Astonia C codebase into a live, free-to-play MMORPG, and have run it in production since 2014.
-              </li>
-              <li>
-                Migrated every raw memory-dump BLOB of quest, NPC and character state into normalized relational tables over several months, with reversible migrations and no player data lost.
-              </li>
-              <li>
-                Rebuilt the data layer around connection pooling, ProxySQL and a three-node replicated MariaDB cluster.
-              </li>
-              <li>
-                Moved from bare metal to Docker, then to Ansible-managed VMs with separate dev, pre-production and production environments and full CI/CD.
-              </li>
-              <li>
-                Built the surrounding services: an SDL3 client, a C++ chat server, a Go API, an Electron launcher, and a Python Discord bot with two-way chat sync.
-              </li>
+              {ugaris.cvHighlights.map((h) => (
+                <li key={h.slice(0, 30)}>{h}</li>
+              ))}
             </ul>
-            <p className={styles.stack}>C · C++ · SDL3 · Go · Python · Electron · Astro · MariaDB · ProxySQL · Docker · Ansible</p>
+            <p className={styles.stack}>{ugaris.cvStack.join(" · ")}</p>
           </div>
         </section>
 
